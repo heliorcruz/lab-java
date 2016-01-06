@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+	
+	<changeSet id="10" author="Helio Ribeiro">
+
+		<createTable tableName="social_post">
+			<column name="id" type="java.sql.Types.BIGINT"  />
+			<column name="topic" type="java.sql.Types.VARCHAR(50)"  />
+			<column name="message"  type="java.sql.Types.VARCHAR(100)" />
+			<column name="date"  type="java.sql.Types.DATE" />	
+			<column name="userId" type="java.sql.Types.BIGINT"  />					
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="20" author="Helio Ribeiro">
+		<addPrimaryKey constraintName="pk_id_post" columnNames="id" tableName="social_post"/>
+		<addForeignKeyConstraint constraintName="fk_id_user" referencedTableName="social_user" baseColumnNames="userId" baseTableName="social_post" referencedColumnNames="id"/>
+				
+	</changeSet>
+
+</databaseChangeLog>

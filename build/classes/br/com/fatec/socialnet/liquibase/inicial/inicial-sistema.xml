@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+	<changeSet id="10" author="Helio Ribeiro">
+
+		<createTable tableName="GERADOR_IDS">
+			<column name="NEXT_ID" type="java.sql.Types.BIGINT"  />
+			<column name="TABLE_NAME" type="java.sql.Types.VARCHAR(30)"  />								
+		</createTable>	
+		
+		<insert tableName="GERADOR_IDS"> 
+			<column name="NEXT_ID">1</column>
+			<column name="TABLE_NAME">social_user</column>			
+		</insert>	
+		
+		<insert tableName="GERADOR_IDS"> 
+			<column name="NEXT_ID">1</column>
+			<column name="TABLE_NAME">social_post</column>			
+		</insert>	
+		
+		<insert tableName="GERADOR_IDS"> 
+			<column name="NEXT_ID">1</column>
+			<column name="TABLE_NAME">social_comment</column>			
+		</insert>
+		
+		<insert tableName="GERADOR_IDS"> 
+			<column name="NEXT_ID">1</column>
+			<column name="TABLE_NAME">social_like</column>			
+		</insert>
+		
+		<insert tableName="GERADOR_IDS"> 
+			<column name="NEXT_ID">1</column>
+			<column name="TABLE_NAME">social_friend</column>			
+		</insert>
+
+	</changeSet>
+	
+	
+
+     
+</databaseChangeLog>

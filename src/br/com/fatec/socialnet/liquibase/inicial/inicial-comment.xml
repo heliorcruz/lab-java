@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+	
+	
+	<changeSet id="10" author="Helio Ribeiro">
+
+		<createTable tableName="social_comment">
+			<column name="id" type="java.sql.Types.BIGINT"  />		
+			<column name="message"  type="java.sql.Types.VARCHAR(100)" />
+			<column name="date"  type="java.sql.Types.DATE" />	
+			<column name="userId" type="java.sql.Types.BIGINT"  />	
+			<column name="postId" type="java.sql.Types.BIGINT"  />				
+		</createTable>
+
+	</changeSet>
+	
+	<changeSet id="20" author="Helio Ribeiro">
+		<addPrimaryKey constraintName="pk_id_comment" columnNames="id" tableName="social_comment"/>
+		<addForeignKeyConstraint constraintName="fk_id_cm_user" referencedTableName="social_user" baseColumnNames="userId" baseTableName="social_comment" referencedColumnNames="id"/>
+		<addForeignKeyConstraint constraintName="fk_id_cm_post" referencedTableName="social_post" baseColumnNames="postId" baseTableName="social_comment" referencedColumnNames="id"/>
+		
+	</changeSet>
+
+</databaseChangeLog>
